@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gym Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  
+  <div class="container">
+    <h1>🏋️Sir Denis Gym Streak Tracker</h1>
+
+    <div class="streaks">
+      <p>Current Streak: <span id="current-streak">0</span> days</p>
+      <p>Longest Streak: <span id="longest-streak">0</span> days</p>
+      <button onclick="markToday()"><i class="fas fa-calendar-check"></i> Mark Today as Gym Day</button>
+    </div>
+
+    <hr />
+
+    <div class="workout-form">
+      <h2><i class="fas fa-dumbbell"></i> Log Workout</h2>
+      <input type="text" id="exercise" placeholder="Exercise name" />
+      <input type="number" id="sets" placeholder="Sets" />
+      <input type="number" id="reps" placeholder="Reps" />
+      <textarea id="notes" placeholder="Notes..."></textarea>
+      <button onclick="logWorkout()"><i class="fas fa-save"></i> Save Workout</button>
+    </div>
+
+    <div class="logs">
+      <h2><i class="fas fa-list-alt"></i> Workout History</h2>
+      <ul id="workout-list"></ul>
+    </div>
+    <div class="progress-tracking">
+      <h2><i class="fas fa-chart-line"></i> Progress Tracking</h2>
+    
+      <!-- Weight Tracking Chart -->
+      <div class="chart-container">
+        <canvas id="weightChart"></canvas>
+      </div>
+    
+      <!-- Performance Chart (Set/Reps/Weight) -->
+      <div class="chart-container">
+        <canvas id="performanceChart"></canvas>
+      </div>
+    </div>
+    
+    <div class="backup-section">
+      <h2><i class="fas fa-cogs"></i> Backup & Restore</h2>
+      <button onclick="downloadBackup()"><i class="fas fa-download"></i> Download Backup</button>
+      <button onclick="downloadCSV()"><i class="fas fa-file-csv"></i> Export as CSV</button>
+      <input type="file" id="import-file" accept=".json" />
+      <button onclick="importBackup()"><i class="fas fa-upload"></i> Import Backup</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
